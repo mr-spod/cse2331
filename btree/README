@@ -12,3 +12,4 @@ Enter the following command:
 kthOrder dataX positionX
 ```
 where dataX and positionX are the paths to your data and position files
+note: the sample data/position files are included in this zip file under sample/
