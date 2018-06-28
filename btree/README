@@ -1,0 +1,14 @@
+# Binary Tree Programming Assignment
+### Sean O'Donnell, Zaccai MTRF 9:05
+
+## Compile
+Enter the following command:
+```
+make
+```
+## Run
+Enter the following command:
+```
+kthOrder dataX positionX
+```
+where dataX and positionX are the paths to your data and position files

@@ -1,0 +1,64 @@
+Binary Tree Programming Assignment
+
+Sean O'Donnell, Zaccai MTRF 9:05
+
+(a) Modification to BST:
+- Added an integer member to 'node' named leftSize, carrying the size of the node's left subtree.
+- This allowed the 'kthOrder' algorithm to execute in theta-h time because at each node there is data describing the relative size of the tree.
+- This modification required that on inserting an element to the tree, the leftSize member of each node above must be incremented by one.
+  - For this reason, in the algorithm to find the parent, the leftSize's are updated
+
+(b) Insertion algorithm
+- Find parent:
+  - Traverse down the tree comparing the new element to each node we meet.
+If the new element is less than the node's value, increment the node's leftSize and move the traversal pointer to the node's left node.
+Otherwise, move the traversal pointer to the right node.
+Once the traversal pointer is NULL, the parent is the most recent node visited.
+- Insert node:
+  - Set the parent of the new node to the parent just found.
+  If the parent we just found was NULL, make the new node the root node because the tree is empty.
+  Otherwise, place the new node to the left or right of the parent depending on their difference.
+- Pseudocode:
+```
+btreeInsert(z, T)
+  y <- NULL;
+  x <- T.root;
+  while (x != NULL) do
+    y <- x;
+    if (z.data < x.data) then
+      x.leftSize = x.leftSize + 1;
+      x = x.left;
+    else
+      x = x.right;
+    end
+  end
+  z.parent = y;
+  if (z.parent == NULL) then
+    T.root <- z;
+  else if (z.data < y.data) then
+    y.left <- z;
+  else
+    y.right <- z;
+  end
+end
+```
+
+(c) kthOrder algorithm
+- Create a traversal pointer and assign the root to it.
+- Traverse down the tree until the traversal pointer is pointing to a node whose leftSize is equal to k
+  - If the traversal goes the the current node's right node, decrease k by 1 + the current node's leftSize
+- Pseudocode:
+```
+kthOrder(k, T)
+  x <- T.root;
+  while (x.leftSize + 1 != k)
+    if (k <= x.leftSize) then
+      x = x.left;
+    else
+      k = k - (x.leftSize + 1);
+      x = x.left;
+    end
+  end
+  return (x.data);
+end
+```
