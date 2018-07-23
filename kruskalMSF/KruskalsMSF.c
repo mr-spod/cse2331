@@ -1,8 +1,8 @@
 /*
-//  kthOrder.c
+//  KruskalsMSF.c
 //  cse2331
 //
-//  Created by Sean O'Donnell on 5/29/18.
+//  Created by Sean O'Donnell on 7/22/18.
 //  Copyright © 2018 Sean O'Donnell. All rights reserved.
 */
 

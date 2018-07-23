@@ -1,0 +1,11 @@
+Sean O'Donnell
+
+Instructions for compiling on stdlinux:
+
+run the following commands...
+
+`make`
+
+this should create an executable named "KruskalsMSF", which will run the algorithm for you.
+
+have fun
